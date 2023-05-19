@@ -2,6 +2,7 @@ import Sub from "../../../Shared/Navbar/Sub";
 import Banner from "../Banner/Banner";
 import Community from "../Community/Community";
 import Gallery from "../Gallery/Gallery";
+import Sponsored from "../Sponsored/Sponsored";
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
             <Gallery></Gallery>
             <Sub></Sub>
             <Community></Community>
+            <Sponsored></Sponsored>
         </div>
     );
 };

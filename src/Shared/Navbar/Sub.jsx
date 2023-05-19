@@ -1,10 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Sub = () => {
   const [toys, setToy] = useState([]);
+    const navigate = useNavigate();
+    const { user } = useContext(AuthContext)
+    const location = useLocation()
+    console.log(location);
   useEffect(() => {
     fetch("ToyRobots.json")
       .then((res) => res.json())
@@ -12,6 +20,19 @@ const Sub = () => {
         setToy(data);
       });
   }, []);
+
+  const handleViewDetails = () => {
+    if (user) {
+      // Redirect to the toy details page
+      navigate("/toy-details");
+    } else {
+      // Show notification and redirect to the login page
+      toast("You have to log in first to view details");
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000); // Delay the navigation after 2 seconds 
+    }
+};
 
   return (
     <div>
@@ -52,7 +73,10 @@ const Sub = () => {
                   </span>
                 </div>
                 <div className="card-actions justify-end ">
-                  <button className=" btn-block text-lg bg-blue-600 py-3 text-white font-semibold mt-7">
+                  <button
+                    onClick={handleViewDetails}
+                    className=" btn-block text-lg bg-blue-600 py-3 text-white font-semibold mt-7"
+                  >
                     View Details
                   </button>
                 </div>
@@ -89,7 +113,10 @@ const Sub = () => {
                   </span>
                 </div>
                 <div className="card-actions justify-end">
-                  <button className=" btn-block text-lg bg-blue-600 py-3 text-white font-semibold mt-7">
+                  <button
+                    onClick={handleViewDetails}
+                    className=" btn-block text-lg bg-blue-600 py-3 text-white font-semibold mt-7"
+                  >
                     View Details
                   </button>
                 </div>
@@ -126,7 +153,10 @@ const Sub = () => {
                   </span>
                 </div>
                 <div className="card-actions justify-end">
-                  <button className=" btn-block text-lg bg-blue-600 py-3 mt-7 text-white font-semibold">
+                  <button
+                    onClick={handleViewDetails}
+                    className=" btn-block text-lg bg-blue-600 py-3 mt-7 text-white font-semibold"
+                  >
                     View Details
                   </button>
                 </div>
@@ -134,6 +164,7 @@ const Sub = () => {
             </div>
           ))}
         </TabPanel>
+        <ToastContainer />
       </Tabs>
     </div>
   );
