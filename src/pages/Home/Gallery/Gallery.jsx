@@ -12,16 +12,16 @@ const Gallery = () => {
       <div>
         <h3 className='text-4xl text-center my-24'>Toy Gallery Section </h3>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 mt-8 px-4">
-          <img className="h-80" src={g1} alt="" />
-          <img className="h-80" src={g2} alt="" />
-          <img className="h-80" src={g3} alt="" />
-          <img className="h-80 w-full" src={g4} alt="" />
+          <img  src={g1} alt="" />
+          <img  src={g2} alt="" />
+          <img  src={g3} alt="" />
+          <img  src={g4} alt="" />
         </div>
 
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 mt-2 px-4">
-          <img className="h-80 w-full" src={g5} alt="" />
-          <img className="h-80 w-full" src={g6} alt="" />
-          <img className="h-80" src={g7} alt="" />
+          <img src={g5} alt="" />
+          <img src={g6} alt="" />
+          <img  src={g7} alt="" />
         </div>
         {/* <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 mt-2 px-4">
           <img className="h-80" src={g8} alt="" />
