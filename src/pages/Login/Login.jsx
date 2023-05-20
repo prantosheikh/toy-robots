@@ -92,8 +92,8 @@ const Login = () => {
                   </span>{" "}
                 </div>
               </div>
-              <p className="text-center"> Or sign in with Email </p>
-
+            
+              <div className="divider"> Or sign in with Email </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

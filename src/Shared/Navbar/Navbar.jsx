@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { IoMdLogIn, IoMdLogOut } from "react-icons/io";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -22,6 +21,9 @@ const Navbar = () => {
     <>
       <li>
         <Link>Home</Link>
+      </li>
+      <li>
+        <Link to="/blogs">Blog</Link>
       </li>
       <li tabIndex={0}>
         <Link>About</Link>
@@ -81,14 +83,21 @@ const Navbar = () => {
           />
 
           {user ? (
-            <IoMdLogOut 
+            <button
               title="Logout"
               onClick={handlerLogout}
-              className="text-4xl cursor-pointer text-blue-800"
-            ></IoMdLogOut>
+              className="text-lg font-bold py-2 px-6 cursor-pointer bg-blue-600 hover:bg-blue-800  text-white"
+            >
+              <span>Logout</span>
+            </button>
           ) : (
             <Link to="/login">
-              <IoMdLogIn title="Login" className="text-4xl text-blue-800"></IoMdLogIn>
+              <button
+                title="Login"
+                className="text-lg font-bold py-2 px-6 cursor-pointer text-white bg-blue-600 hover:bg-blue-800"
+              >
+                Login
+              </button>
             </Link>
           )}
         </div>
