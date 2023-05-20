@@ -46,7 +46,7 @@ const Blogs = () => {
           </div>
         </div>
 
-        <div className="mockup-window border border-base-300">
+        <div className="mockup-window border border-base-300 my-16">
           Compare SQL and NoSQL databases?
           <div className="px-10 py-16 border-t border-base-300">
             <p className="text-2xl font-semibold"> Answer Question</p>
@@ -60,7 +60,7 @@ const Blogs = () => {
           </div>
         </div>
 
-        <div className="mockup-window border border-base-300">
+        <div className="mockup-window border border-base-300 my-16">
           What is express js? What is Nest JS
           <div className="px-10 py-16 border-t border-base-300">
             <p className="text-2xl font-semibold"> Answer Question</p>
