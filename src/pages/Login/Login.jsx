@@ -1,12 +1,21 @@
 import { useContext, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../assets/images/login.jpg";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
   const { loginUser, googleLogin, githubLogin } = useContext(AuthContext);
+
+
+  const location = useLocation();
+  const navigate = useNavigate();
+   let from = location.state?.from.pathname || "/";
+  
+
+
+
   const [error, setError] = useState(" ");
   const [success, setSuccess] = useState(" ");
 
@@ -45,6 +54,7 @@ const Login = () => {
         const loggedUser = result.user;
         console.log(loggedUser);
         setSuccess("Your login was successful");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         // Handle login error
