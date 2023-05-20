@@ -23,10 +23,13 @@ const Navbar = () => {
         <Link>Home</Link>
       </li>
       <li>
-        <Link to="/blogs">Blog</Link>
+        <Link to="/toyall">All Toy</Link>
       </li>
       <li>
-        <Link to='toyall'>All Toy</Link>
+        <Link to="/addtoy">Add Toy</Link>
+      </li>
+      <li>
+        <Link to="/blogs">Blog</Link>
       </li>
       <li tabIndex={0}>
         <Link>About</Link>

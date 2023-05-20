@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import ToyAll from "../ToyAll/ToyAll";
+import AddToy from "../pages/AddToy/AddToy";
 import Blogs from "../pages/Blogs/Blogs";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
@@ -26,17 +27,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/toy-details",
-        element: <ToyDetails></ToyDetails>
+        element: <ToyDetails></ToyDetails>,
       },
 
       {
-        path: '/blogs',
-        element: <Blogs></Blogs>
+        path: "/blogs",
+        element: <Blogs></Blogs>,
       },
       {
         path: "toyall",
-        element: <ToyAll></ToyAll>
-      }
+        element: <ToyAll></ToyAll>,
+      },
+      {
+        path: "/addtoy",
+        element: <AddToy></AddToy>
+      },
     ],
   },
 ]);
