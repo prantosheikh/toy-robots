@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import ToyAll from "../ToyAll/ToyAll";
+import UpdateToy from "../UpdateToy/UpdateToy";
 import AddToy from "../pages/AddToy/AddToy";
 import Blogs from "../pages/Blogs/Blogs";
 import Home from "../pages/Home/Home/Home";
@@ -40,7 +41,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/addtoy",
-        element: <AddToy></AddToy>
+        element: <AddToy></AddToy>,
+      },
+      {
+        path: "/updatetoy/:id",
+        element: <UpdateToy></UpdateToy>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:2000/updatetoy/${params.id}`),
       },
     ],
   },

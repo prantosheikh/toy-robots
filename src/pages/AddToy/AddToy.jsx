@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import CreatableSelect from "react-select/creatable";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 const AddToy = () => {
     const {user} = useContext(AuthContext)
@@ -23,6 +24,12 @@ const AddToy = () => {
           .then((res) => res.json())
           .then((result) => {
             console.log(result);
+            if (result.acknowledged === true) {
+              Swal.fire({
+                icon: "success",
+                title: "Added Complete",
+              });
+            }
           });
     console.log(data);
 
@@ -33,7 +40,6 @@ const AddToy = () => {
 
 
   const options = [
-    { value: "JavaScript", label: "JavaScript" },
     { value: "Marvel", label: "Marvel" },
     { value: "Avengers", label: "Avengers" },
     { value: "StarWars", label: "StarWars" },
@@ -156,7 +162,7 @@ const AddToy = () => {
             <input
               className="border h-44 p-3 w-full"
               placeholder="Description"
-              {...register("exampleRequired", { required: true })}
+              {...register("description", { required: true })}
               required
             />
           </div>
