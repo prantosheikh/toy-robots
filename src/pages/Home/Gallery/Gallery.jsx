@@ -23,12 +23,6 @@ const Gallery = () => {
           <img  src={g6} alt="" />
           <img data-aos="fade-down-right" src={g7} alt="" />
         </div>
-        {/* <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 mt-2 px-4">
-          <img className="h-80" src={g8} alt="" />
-          <img className="h-80" src={g9} alt="" />
-          <img className="h-80" src={g10} alt="" />
-          <img className="h-80" src={g11} alt="" />
-        </div> */}
       </div>
     );
 };

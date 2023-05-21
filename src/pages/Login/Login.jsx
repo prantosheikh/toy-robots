@@ -11,10 +11,7 @@ const Login = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-   let from = location.state?.from.pathname || "/";
-  
-
-
+  let from = location.state?.from.pathname || "/";
 
   const [error, setError] = useState(" ");
   const [success, setSuccess] = useState(" ");

@@ -15,16 +15,17 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-    console.log(user);
-    
-    const GoogleProvider = new GoogleAuthProvider()
-    const GithubProvider = new GithubAuthProvider();
+  console.log(user);
 
+  const GoogleProvider = new GoogleAuthProvider();
+  const GithubProvider = new GithubAuthProvider();
+
+  // createUserWithEmailAndPassword
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
-
+  // signInWithEmailAndPassword
   const loginUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
@@ -35,28 +36,27 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  
+  // onAuthStateChanged
+  useEffect(() => {
+    const unsubsrcibe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+    return () => {
+      return unsubsrcibe();
+    };
+  }, []);
 
-    useEffect(() => {
-      const unsubsrcibe =  onAuthStateChanged(auth, (currentUser) => {
-          setUser(currentUser);
-          setLoading(false);
-        })
-         return () => {
-           return unsubsrcibe();
-         };
-    }, [])
-    
-
+  //  googleLogin
   const googleLogin = () => {
-      setLoading(true)
-        return signInWithPopup(auth, GoogleProvider);
-    }
-
+    setLoading(true);
+    return signInWithPopup(auth, GoogleProvider);
+  };
+  // githubLogin
   const githubLogin = () => {
-      setLoading(true)
-        return signInWithPopup(auth, GithubProvider)
-    }
+    setLoading(true);
+    return signInWithPopup(auth, GithubProvider);
+  };
 
   const authInfo = {
     user,

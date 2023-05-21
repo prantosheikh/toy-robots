@@ -15,7 +15,7 @@ const MyToy = () => {
   const [toys, setToys] = useState([]);
   console.log(toys);
 
-  const uri = `http://localhost:2000/mytoy?email=${user?.email}`;
+  const uri = `https://toy-robot-server.vercel.app/mytoy?email=${user?.email}`;
 
   useEffect(() => {
     fetch(uri)
@@ -24,6 +24,8 @@ const MyToy = () => {
         setToys(data);
       });
   }, []);
+
+
 
   const handlerDelete = (id) => {
     Swal.fire({
@@ -36,7 +38,7 @@ const MyToy = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:2000/toyall/${id}`, {
+        fetch(`https://toy-robot-server.vercel.app/toyall/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

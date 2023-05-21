@@ -1,6 +1,6 @@
 # b7a11-toy-marketplace-client-side-prantosheikh
 
-#
+# Special announcement. Somehow if the data is not loaded from vercle or the loading is delayed, then if the live site is refreshed once, hopefully the data will be loaded.
 
 This project and course is basically an assignment project
 

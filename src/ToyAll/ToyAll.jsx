@@ -1,12 +1,21 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
 
 const ToyAll = () => {
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+  const location = useLocation();
+  console.log(location);
+
+  
   const [toys, setToys] = useState([]);
+  
   const [toySingle, settoySingle] = useState({});
-  console.log(toys);
+
 
   const singleToy = (id) => {
     console.log(id);
@@ -22,6 +31,8 @@ const ToyAll = () => {
         setToys(data);
       });
   }, []);
+
+  
 
   const handlerDelete = (id) => {
      Swal.fire({
@@ -52,13 +63,63 @@ const ToyAll = () => {
        
      });
   }
+    const handleViewDetails = () => {
+      if (user) {
+        // Redirect to the toy details page
+        navigate("/toyall");
+      } else {
+        // Show notification and redirect to the login page
+        toast("You have to log in first to view details");
+        setTimeout(() => {
+          navigate("/login");
+        },); 
+      }
+    };
+
+  const [searchText, setSearchText] = useState([])
+  console.log(searchText);
 
 
+  const handleSearch = () => {
+    fetch(`http://localhost:5000/getToyByText/${searchText}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setToys(data);
+      });
+  };
 
 
   return (
-    <div className="overflow-x-auto w-full my-20 h-[512px]">
-      {}
+    <div className="overflow-x-auto w-full my-20 h-[512px] ">
+      
+      <div className="form-control mb-7 sticky top-0 z-50 ">
+        <div className="input-group w-1/2 ">
+          <input
+            onChange={(e) => setSearchText(e.target.value)}
+            type="text"
+            placeholder="Search…"
+            name="search"
+            className="input input-bordered w-1/2"
+          />
+          <button onClick={handleSearch} className="btn btn-square">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
       <table className="table w-full">
         {/* head */}
         <thead>
@@ -115,11 +176,18 @@ const ToyAll = () => {
                     </Link>
                   </td>
                   <td>
-                    <AiOutlineDelete onClick={() => handlerDelete(toy._id)} className="text-2xl text-red-500 cursor-pointer"></AiOutlineDelete>
+                    <AiOutlineDelete
+                      onClick={() => handlerDelete(toy._id)}
+                      className="text-2xl text-red-500 cursor-pointer"
+                    ></AiOutlineDelete>
                   </td>
 
                   <td onClick={() => singleToy(toy._id)}>
-                    <label htmlFor="my-modal-5" className="btn btn-xs">
+                    <label
+                      onClick={handleViewDetails}
+                      htmlFor="my-modal-5"
+                      className="btn btn-xs"
+                    >
                       Details
                     </label>
                   </td>
@@ -149,14 +217,6 @@ const ToyAll = () => {
                 <h1 className="text-lg font-semibold mb-5">
                   {toySingle?.email}
                 </h1>
-
-                {/* {toySingle.subToyCategory.map((subtoy, i) => (
-                  <span className="border p-2 " key={i}>
-                    {" "}
-                    
-                    <span>{subtoy?.value}</span>
-                  </span>
-                ))} */}
 
                 <div className="flex gap-11">
                   <p className="mt-4">Price: ${toySingle?.price}</p>
