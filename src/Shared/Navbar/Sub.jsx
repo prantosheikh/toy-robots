@@ -14,7 +14,7 @@ const Sub = () => {
     const location = useLocation()
     console.log(location);
   useEffect(() => {
-    fetch("ToyRobots.json")
+    fetch("http://localhost:2000/subCategory")
       .then((res) => res.json())
       .then((data) => {
         setToy(data);
