@@ -81,7 +81,7 @@ const Banner = () => {
         <div className="grid lg:grid-cols-2 lg:ms-20">
           <div className="mt-20">
             <h1 className="text-white text-5xl ">
-              GUNDAM DEATHSCYTHE <br /> HELL EW 
+              GUNDAM DEATHSCYTHE <br /> HELL EW
             </h1>
             <p className="text-white mt-7 me-8">
               Learning through play is the foundation of the STEM philosophy,

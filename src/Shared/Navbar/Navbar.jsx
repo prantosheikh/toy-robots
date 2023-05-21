@@ -47,7 +47,7 @@ const Navbar = () => {
   );
   return (
     <div className="sticky top-0 z-50 ">
-      <div className="navbar bg-slate-100 py-6 mt-5 px-8 rounded-md">
+      <div className="navbar bg-slate-100 py-6 mt-5 px-2 rounded-md">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -75,8 +75,8 @@ const Navbar = () => {
           </div>
           <Link to="/">
             <div className="flex items-center gap-3">
-              <img src={logo} width={55} alt="" />
-              <span className="text-4xl font-semibold font-mono">
+              <img src={logo} className="w-[30px] ms-3" alt="" />
+              <span className="text-2xl lg:text-3xl font-semibold font-mono">
                 Toy <span className="text-blue-700">robots</span>
               </span>
             </div>
