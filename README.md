@@ -42,22 +42,17 @@ If you have any feedback, please reach out to us at proantsheikh834@gmail.com
 
 - firebase deploy
 
-///////// FIREBASE DEPLOY USING COMMAND LINE //////////////////
+/ FIREBASE DEPLOY USING COMMAND LINE /
+// Go to Terminal and Login to firebase below command
 
-// Goto Terminal and Login to firebase below command
+- firebase login
 
-=> firebase login
+- firebase init
 
-=> firebase init
-
-=> select Hosting: Configure and deploy ... (press space for select)
-// press enter after selecting
+- select Hosting: Configure and deploy ... (press space for select)
+  // press enter after selecting
 
 ## Related
-
-Here are some related projects
-
-[Project README](https://github.com/programming-hero-web-course-4/b7a11-toy-marketplace-client-side-prantosheikh/blob/main/README.md)
 
 ## Used By
 
