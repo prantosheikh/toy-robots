@@ -1,11 +1,21 @@
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 import img1 from "../../../assets/banner/2.jpg";
 import img from "../../../assets/banner/3.jpg";
 import img4 from "../../../assets/banner/4.jpg";
 
 const Banner = () => {
+   useEffect(() => {
+     Aos.init({
+       // Configure options here (e.g., duration, easing, offset, etc.)
+     });
+   }, []);
   return (
-    <div className="carousel w-full">
+    <div className="carousel w-full ">
       <div
+        data-aos="flip-up"
+        data-aos-duration="2000"
         id="slide1"
         className="carousel-item relative w-full lg:h-[600px]  bg-gray-900 border-white"
       >

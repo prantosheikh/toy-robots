@@ -48,6 +48,8 @@ const Sub = () => {
           {toys.slice(4, 7).map((toy, i) => (
             <div
               key={i}
+              data-aos="fade-up"
+              data-aos-duration="2000"
               className="card card-compact rounded-none pb-6  bg-base-100 shadow-xl"
             >
               <figure>
@@ -88,6 +90,9 @@ const Sub = () => {
           {toys.slice(0, 3).map((toy, i) => (
             <div
               key={i}
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="1000"
               className="card card-compact rounded-none pb-6 bg-base-100 shadow-xl"
             >
               <figure>
@@ -128,6 +133,10 @@ const Sub = () => {
           {toys.slice(8, 11).map((toy, i) => (
             <div
               key={i}
+              data-aos="fade-left"
+             
+        
+              data-aos-duration="500"
               className="card card-compact rounded-none pb-6   bg-base-100 shadow-xl"
             >
               <figure>
