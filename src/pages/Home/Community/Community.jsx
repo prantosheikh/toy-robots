@@ -13,8 +13,7 @@ const Community = () => {
     return (
       <div className="my-32 ">
         <div
-          data-aos="zoom-out-up"
-          data-aos-duration="3000"
+          
           className="w-full  bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 lg:flex rounded-xl pt-8"
         >
           <div className="ms-16 mt-10 mr-8">
