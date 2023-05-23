@@ -16,7 +16,7 @@ const AddToy = () => {
         data.subToyCategory = selectedOption;
         console.log(data)
 
-        fetch("http://localhost:2000/addToy", {
+        fetch("https://toy-robot-server.vercel.app/addToy", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),

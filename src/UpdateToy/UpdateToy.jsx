@@ -18,7 +18,7 @@ const UpdateToy = () => {
     const description = form.description.value;
     const update = { name, price, availableQuantity, rating, description };
 
-    fetch(`http://localhost:2000/updatetoy/${updateToy.id}`, {
+    fetch(`https://toy-robot-server.vercel.app/updatetoy/${updateToy.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

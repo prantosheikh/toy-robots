@@ -14,7 +14,7 @@ const Sub = () => {
     const location = useLocation()
     console.log(location);
   useEffect(() => {
-    fetch("http://localhost:2000/subCategory")
+    fetch("https://toy-robot-server.vercel.app/subCategory")
       .then((res) => res.json())
       .then((data) => {
         setToy(data);

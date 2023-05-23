@@ -19,13 +19,13 @@ const ToyAll = () => {
 
   const singleToy = (id) => {
     console.log(id);
-    fetch(`http://localhost:2000/toyall/${id}`)
+    fetch(`https://toy-robot-server.vercel.app/toyall/${id}`)
       .then((res) => res.json())
       .then((toy) => settoySingle(toy));
   };
 
   useEffect(() => {
-    fetch("http://localhost:2000/toyall")
+    fetch("https://toy-robot-server.vercel.app/toyall")
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
@@ -45,7 +45,7 @@ const ToyAll = () => {
        confirmButtonText: "Yes, delete it!",
      }).then((result) => {
        if (result.isConfirmed) {
-         fetch(`http://localhost:2000/toyall/${id}`, {
+         fetch(`https://toy-robot-server.vercel.app/toyall/${id}`, {
            method: "DELETE",
          })
          .then((res) => res.json())

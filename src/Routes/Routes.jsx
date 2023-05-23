@@ -50,7 +50,7 @@ const router = createBrowserRouter([
         path: "/updatetoy/:id",
         element: <UpdateToy></UpdateToy>,
         loader: ({ params }) =>
-          fetch(`http://localhost:2000/updatetoy/${params.id}`),
+          fetch(`https://toy-robot-server.vercel.app/updatetoy/${params.id}`),
       },
       {
         path: "/mytoy",
